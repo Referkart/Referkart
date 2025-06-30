@@ -1,5 +1,6 @@
 'use client'
 import React from 'react'
+import { useRouter } from 'next/navigation'
 import {
   BriefcaseIcon,
   UsersIcon,
@@ -8,6 +9,12 @@ import {
 } from 'lucide-react'
 
 const HeroSection = () => {
+  const router = useRouter()
+
+  const handleFindReferralsClick = () => {
+    router.push('/login')
+  }
+
   return (
     <div className="w-full bg-gradient-to-b from-white to-blue-50">
       {/* Hero Content */}
@@ -24,7 +31,10 @@ const HeroSection = () => {
               companies. Boost your chances of landing interviews by up to 14x.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <button className="px-8 py-4 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition flex items-center justify-center">
+              <button
+                onClick={handleFindReferralsClick}
+                className="px-8 py-4 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition flex items-center justify-center"
+              >
                 Find Referrals <ArrowRightIcon size={18} className="ml-2" />
               </button>
               <button className="px-8 py-4 bg-white text-blue-600 border border-blue-600 rounded-md hover:bg-blue-50 transition flex items-center justify-center">
@@ -156,4 +166,4 @@ const HeroSection = () => {
   )
 }
 
-export default HeroSection 
+export default HeroSection
